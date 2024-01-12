@@ -1,0 +1,124 @@
+.hide
+{
+    display: none !important;
+}
+
+form[data-former]
+{
+    --former-success-border: #d3e9d6;
+    --former-success-background: #ecf6ee;
+
+    --former-error-border: #edd3cc;
+    --former-error-background: #f3e8e5;
+
+    --fomer-loader-background: white;
+    --fomer-loader-foreground: #c0c0c0;
+
+    --former-button-disabled: #dcdcdc;
+}
+
+form[data-former] button[type="submit"]
+{
+    position: relative;
+}
+
+form[data-former] input:valid
+{
+    border: 1px solid black;
+}
+
+form[data-former] input:invalid
+{
+    border: 1px solid red;
+}
+
+form[data-former] .form-notification
+{
+    display: grid;
+    grid-template-columns: 50px auto;
+    text-align: left;
+
+    font-size: 15px;
+    line-height: 140%;
+
+    padding: 15px 30px 15px 25px;
+    border-radius: 4px;
+}
+
+form[data-former] .form-notification figure,
+form[data-former] .form-notification span
+{
+    display: flex;
+    align-items: center;
+}
+
+form[data-former] .form-notification.success
+{
+    background-color: var(--former-success-background);
+    border: 1px solid var(--former-success-border);
+}
+
+form[data-former] .form-notification.error
+{
+    background-color: var(--former-error-background);
+    border: 1px solid var(--former-error-border);
+}
+
+form[data-former].processing button[type=submit] span
+{
+    visibility: hidden;
+}
+
+form[data-former].processing button[type=submit]:disabled
+{
+    background-color: var(--former-button-disabled);
+    border-color: var(--former-button-disabled);
+
+    cursor: not-allowed !important;
+    pointer-events: none;
+}
+
+form[data-former].processing button[type=submit] .loader
+{
+    display: block !important;
+}
+
+form[data-former] .loader
+{
+    position: absolute;
+    display: block;
+
+    top: 50%;
+    left: 50%;
+
+    margin-top: -11px;
+    margin-left: -11px;
+
+    width: 22px;
+    height: 22px;
+    border: 3px solid var(--fomer-loader-background);
+    border-bottom-color: var(--fomer-loader-foreground);
+    border-radius: 50%;
+    display: inline-block;
+    box-sizing: border-box;
+    animation: --former-rotation 1s linear infinite;
+}
+
+/** Validation **/
+form[data-former] .error-message
+{
+    color: #d23b3d;
+}
+
+@keyframes --former-rotation
+{
+    0%
+    {
+        transform: rotate(0deg);
+    }
+
+    100%
+    {
+        transform: rotate(360deg);
+    }
+}

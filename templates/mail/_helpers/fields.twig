@@ -1,0 +1,9 @@
+<table class="fields">
+    <caption>Felder</caption>
+    {% for name, value in fields %}
+        <tr>
+            <td class="label">{{ name | t('former/labels') }}</td>
+            <td>{{ value }}</td>
+        </tr>
+    {% endfor %}
+</table>

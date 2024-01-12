@@ -1,0 +1,7 @@
+{% extends 'mail/@mail' %}
+
+{% block content %}
+    <span class="title">{{ "title_#{submission.type.value}" | t('former/mail') }}</span>
+    <p>{{ "body_#{submission.type.value}" | t('former/mail') }}</p>
+    {% include 'mail/_helpers/fields' with { fields: submission.fields } %}
+{% endblock %}
